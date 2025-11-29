@@ -2,7 +2,6 @@
 
 A highly customizable BakkesMod plugin that displays your Rocket League rank, MMR (Matchmaking Rating), and rank progression directly on your screen during gameplay.
 
-![Plugin Preview](assets/preview.png) 
 ## Features
 
 -  **Real-time MMR Display** - View your current MMR as it updates after matches
@@ -29,7 +28,7 @@ A highly customizable BakkesMod plugin that displays your Rocket League rank, MM
 ### Steps
 
 1. **Download the Plugin**
-   - Go to the [Releases](https://github.com/YourUsername/RocketLeagueRankViewer/releases) page
+   - Go in the repository
    - Download the latest `LadderRank.dll`
 
 2. **Install the Plugin**
