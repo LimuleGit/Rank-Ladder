@@ -1,14 +1,13 @@
-# Rocket League Rank Viewer
+# Rocket League Ladder Rank
 
 A highly customizable BakkesMod plugin that displays your Rocket League rank, MMR (Matchmaking Rating), and rank progression directly on your screen during gameplay.
 
-![Plugin Preview](assets/preview.png) <!-- Add your screenshot -->
-
+![Plugin Preview](assets/preview.png) 
 ## Features
 
-- 📊 **Real-time MMR Display** - View your current MMR as it updates after matches
-- 🎯 **Rank Progression** - See your current rank along with the next and previous ranks
-- 🎮 **Multi-Playlist Support** - Works with all ranked playlists:
+-  **Real-time MMR Display** - View your current MMR as it updates after matches
+-  **Rank Progression** - See your current rank along with the next and previous ranks
+-  **Multi-Playlist Support** - Works with all ranked playlists:
   - 1v1 (Duel)
   - 2v2 (Doubles)
   - 3v3 (Standard)
@@ -17,16 +16,9 @@ A highly customizable BakkesMod plugin that displays your Rocket League rank, MM
   - Dropshot
   - Snowday
   - Tournaments
-- 🎨 **Fully Customizable** - Adjust position, size, spacing, and opacity to your liking
-- ⚡ **Lightweight** - Minimal performance impact on your game
-- 🔄 **Auto-Update** - Automatically refreshes after each match
-
-## Screenshots
-
-<!-- Add multiple screenshots showing different configurations -->
-| Default View | Custom Layout | Settings Panel |
-|-------------|---------------|----------------|
-| ![Default](assets/default.png) | ![Custom](assets/custom.png) | ![Settings](assets/settings.png) |
+- **Fully Customizable** - Adjust position, size, spacing, and opacity to your liking
+- **Lightweight** - Minimal performance impact on your game
+- **Auto-Update** - Automatically refreshes after each match
 
 ## Installation
 
@@ -38,25 +30,25 @@ A highly customizable BakkesMod plugin that displays your Rocket League rank, MM
 
 1. **Download the Plugin**
    - Go to the [Releases](https://github.com/YourUsername/RocketLeagueRankViewer/releases) page
-   - Download the latest `RankViewerNVersion.dll`
+   - Download the latest `LadderRank.dll`
 
 2. **Install the Plugin**
    - Navigate to your BakkesMod plugins folder:
 ```
      %APPDATA%\bakkesmod\bakkesmod\plugins
 ```
-   - Copy `RankViewerNVersion.dll` into this folder
+   - Copy `LadderRank.dll` into this folder
 
 3. **Install Required Assets**
-   - Download the `RankViewer` folder from the repository
-   - Copy it to your BakkesMod data folder:
+   - Download the `LadderRank` folder from the repository
+   - Copy it to your BakkesMod data folder (if you don't have data folder create one):
 ```
-     %APPDATA%\bakkesmod\bakkesmod\data\RankViewer
+     %APPDATA%\bakkesmod\bakkesmod\data\LadderRank
 ```
    - The folder structure should look like:
 ```
      data/
-     └── RankViewer/
+     └── LadderRank/
          ├── RankIcons/
          │   ├── 0.png
          │   ├── 1.png
@@ -67,13 +59,21 @@ A highly customizable BakkesMod plugin that displays your Rocket League rank, MM
              └── ... (all playlist data)
 ```
 
-4. **Load the Plugin**
-   - Open Rocket League
-   - Open BakkesMod console (F6 by default)
-   - Type: `plugin load rankviewernversion`
-   - Or add to your `cfg/plugins.cfg`:
+4. Load the Plugin (if you don’t see the plugin)
+  - Open the BakkesMod Manager
+  - Go to Plugins
+  - Open the Plugin Manager
+  - Check LadderRank
+  - It should then appear on the left, and you can customize the plugin settings
+    
+    If nothing shows up:
+  - Launch Rocket League
+  - Open the BakkesMod console (F6 by default)
+  - Type:
+  - plugin load LadderRank
+  - Or add this line to your cfg/plugins.cfg:
 ```
-     plugin load rankviewernversion
+     plugin load LadderRank
 ```
 
 ## Usage
@@ -118,161 +118,42 @@ Choose which ranked playlist to display:
 
 The plugin uses BakkesMod's standard menu controls:
 - `F2` - Open BakkesMod menu
-- `F6` - Open BakkesMod console
 
 ## Configuration
 
 All settings are saved automatically through BakkesMod's CVar system. You can also manually edit them in the console:
 ```
 // Enable/disable plugin
-rankviewer_enabled 1
+LadderRank_enabled 1
 
 // Select playlist (11 = 2v2)
-rankviewer_playlist 11
+LadderRank_playlist 11
 
 // Position
-rankviewer_offset_x 700
-rankviewer_offset_y -400
+LadderRank_offset_x 700
+LadderRank_offset_y -400
 
 // Size
-rankviewer_rect_width 470
-rankviewer_rect_height 250
+LadderRank_rect_width 470
+LadderRank_rect_height 250
 
 // Appearance
-rankviewer_opacity 255
+LadderRank_opacity 255
 ```
 
 ### Reset to Defaults
 
 Click the "Reset to Default" button in the settings panel to restore all settings to their original values.
 
-## Building from Source
-
-### Requirements
-- Visual Studio 2019 or later
-- [BakkesMod Plugin SDK](https://github.com/bakkesmodorg/BakkesModSDK)
-- C++17 or later
-
-### Build Steps
-
-1. **Clone the Repository**
-```bash
-   git clone https://github.com/YourUsername/RocketLeagueRankViewer.git
-   cd RocketLeagueRankViewer
-```
-
-2. **Setup SDK**
-   - Ensure BakkesMod SDK is properly installed
-   - Update include paths in your project settings
-
-3. **Build**
-```bash
-   # Open in Visual Studio
-   # Build → Build Solution (Ctrl+Shift+B)
-   # Or use MSBuild:
-   msbuild RankViewerNVersion.sln /p:Configuration=Release
-```
-
-4. **Output**
-   - Built DLL will be in `x64/Release/RankViewerNVersion.dll`
-
-## Project Structure
-```
-RocketLeagueRankViewer/
-├── src/
-│   ├── RankViewerNVersion.cpp      # Main implementation
-│   ├── RankViewerNVersion.h        # Header file
-│   └── pch.h                       # Precompiled headers
-├── assets/
-│   ├── RankIcons/                  # Rank icon images
-│   │   ├── 0.png - 22.png
-│   └── RankNumbers/                # MMR threshold data
-│       ├── 10.json - 34.json
-├── docs/
-│   ├── CHANGELOG.md
-│   └── CONTRIBUTING.md
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
-## Troubleshooting
-
-### Plugin doesn't load
-- Verify BakkesMod is installed and working
-- Check BakkesMod console for error messages
-- Ensure the DLL is in the correct plugins folder
-- Try loading manually: `plugin load rankviewernversion`
-
-### Rank not displaying
-- Make sure you've played at least 10 placement matches in the selected playlist
-- Check that the correct playlist is selected in settings
-- Wait a few seconds after a match for MMR to sync
-- Toggle the plugin off and on
-
-### Icons not showing
-- Verify the `RankViewer` folder is in the correct location
-- Check that all PNG files are present in `RankIcons/`
-- Ensure file names match exactly (0.png through 22.png)
-
-### Performance issues
-- Lower the opacity slightly
-- Reduce the rectangle size
-- Disable unused display options
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow the existing code style
-- Add comments for complex logic
-- Test thoroughly before submitting
-- Update documentation as needed
-
-## Known Issues
-
-- [ ] Rank icons may flicker briefly after match completion
-- [ ] Tournament ranks may take longer to sync
-- [ ] Very high MMR values (>2000) may display slightly off-center
-
-See the [Issues](https://github.com/YourUsername/RocketLeagueRankViewer/issues) page for a full list.
-
-## Roadmap
-
-- [ ] Add rank history tracking
-- [ ] Include win/loss streak indicators
-- [ ] Add animated rank up/down notifications
-- [ ] Support for custom themes
-- [ ] Rank predictions based on current MMR
-- [ ] Party member rank display
-
 ## Credits
 
-- **Developer**: [Your Name](https://github.com/YourUsername)
+- **Developer**: LimuleGit (ME)
 - **BakkesMod**: [BakkesMod Team](https://www.bakkesmod.com/)
-- **Rank Icons**: Psyonix/Rocket League
-- **Contributors**: [See Contributors](https://github.com/YourUsername/RocketLeagueRankViewer/graphs/contributors)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **The Data folder**: Come to the pluggin LadderRank !!! It's a very cool plugin You need to check it don't hesitate : https://github.com/BeardedOranges/LadderRank
 
 ## Disclaimer
 
 This is a third-party plugin and is not affiliated with or endorsed by Psyonix or Epic Games. Use at your own risk. While BakkesMod is generally safe to use, always ensure you're following the game's terms of service.
-
-## Support
-
-- **Issues**: [GitHub Issues](https://github.com/YourUsername/RocketLeagueRankViewer/issues)
-- **Discord**: [BakkesMod Discord](https://discord.gg/bakkesmod)
-- **Documentation**: [Wiki](https://github.com/YourUsername/RocketLeagueRankViewer/wiki)
 
 ---
 
