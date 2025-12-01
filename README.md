@@ -148,7 +148,7 @@ Click the "Reset to Default" button in the settings panel to restore all setting
 
 - **Developer**: LimuleGit (ME)
 - **BakkesMod**: [BakkesMod Team](https://www.bakkesmod.com/)
-- **The Data folder**: Come to the pluggin LadderRank !!! It's a very cool plugin You need to check it don't hesitate : https://github.com/BeardedOranges/LadderRank
+- **The Data folder**: Come to the pluggin Rank Viewer !!! It's a very cool plugin You need to check it don't hesitate : [github.com/BeardedOranges/LadderRank](https://github.com/BeardedOranges/RankViewer)
 
 ## Disclaimer
 
